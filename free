@@ -285,3 +285,43 @@ local Toggle = PlayerTab:CreateToggle({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
    end,
 })
+
+
+local VisualsTab = Window:CreateTab("Name/lvl", 4483362458) -- Title, Image
+local VisualsSection = VisualsTab:CreateSection("Security")
+
+local Button = VisualsTab:CreateButton({
+   Name = "hide name",
+   Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local character = player.Character
+    if character and character:FindFirstChild("Head") then
+        local nameGui = character.Head:FindFirstChild("NameGui")
+        if nameGui and nameGui:FindFirstChild("Main") then
+            local nameLabel = nameGui.Main:FindFirstChild("Name")
+            if nameLabel then
+                nameLabel.Text = "Discord.gg/daddyshub"  -- change dis with the name u want
+            end
+        end
+    end
+end   end,
+})
+
+local Button = VisualsTab:CreateButton({
+   Name = "Hide level",
+   Callback = function()
+        for _, player in pairs(game.Players:GetPlayers()) do
+    local character = player.Character
+    if character and character:FindFirstChild("Head") then
+        local nameGui = character.Head:FindFirstChild("NameGui")
+        if nameGui and nameGui:FindFirstChild("Main") then
+            local levelLabel = nameGui.Main:FindFirstChild("Level")
+            if levelLabel then
+                levelLabel.Text = "lvl 69"  -- This is the level changer :p
+            end
+        end
+    end
+end
+   end,
+})
+
