@@ -190,3 +190,31 @@ local Toggle = DupeTab:CreateToggle({
 
 local LootallTab = Window:CreateTab("Loot Weapons", 4483362458) -- Title, Image
 local LootallSection = LootallTab:CreateSection("Loot")
+
+local Toggle = LootallTab:CreateToggle({
+   Name = "Loot All",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        local lootstealingshit = gunsection.element('Toggle', 'Loot Stealing', false, function(v)
+    _G.LootStealing = v.Toggle
+    while _G.LootStealing do
+        wait(0.5)
+        for i,v in pairs(game.Players:GetChildren()) do
+            spawn(function()
+                local args = {
+                    [1] = v
+                }
+                
+                game:GetService("ReplicatedStorage"):WaitForChild("LootPlayerRF"):InvokeServer(unpack(args))
+            end)
+        end
+    end
+end)
+
+   end,
+})
+
+local FunnyshitTab = Window:CreateTab("Funny Stuff", 4483362458) -- Title, Image
+local FunnyshitSection = FunnyshitTab:CreateSection("Jerk OFF")
+
