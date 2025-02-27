@@ -187,3 +187,6 @@ local Toggle = DupeTab:CreateToggle({
         end
     end
 })
+
+local LootallTab = Window:CreateTab("Loot Weapons", 4483362458) -- Title, Image
+local LootallSection = LootallTab:CreateSection("Loot")
